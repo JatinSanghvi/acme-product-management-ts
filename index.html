@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Acme Product Management</title>
+
+    <!-- Style sheets -->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body ng-app="ProductManagement">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand">Acme Product Management</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div ng-include="'app/products/productListView.html'"></div>
+    </div>
+
+    <!-- Library Scripts -->
+    <script src="node_modules/systemjs/dist/system.js"></script>
+
+    <!-- Module Loader -->
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+        System.config({
+            paths: {
+                'angular': 'node_modules/angular/index'
+            },
+            meta: {
+                format: 'cjs'
+            },
+            packages: {
+                '.': {
+                    defaultExtension: 'js'
+                }
+            }
+        });
+
+        // Main Module
+        System.import('./js/app');
+
+        // Domain Classes
+
+        // Services
+
+        // Controllers
+        System.import('./js/products/productListController');
+
+</script>
+
+</body>
+
+</html>
