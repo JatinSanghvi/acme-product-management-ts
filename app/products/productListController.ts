@@ -1,9 +1,11 @@
 import * as angular from "angular";
 
+import { IProduct, Product } from "./product";
+
 interface IProductList {
     title: string;
     showImage: boolean;
-    products: any[];
+    products: IProduct[];
 
     toggleImage(): void;
 }
@@ -11,7 +13,7 @@ interface IProductList {
 class ProductListController implements IProductList {
     title: string;
     showImage: boolean;
-    products: any[];
+    products: IProduct[];
 
     constructor() {
         this.title = "Product List";
@@ -46,6 +48,13 @@ class ProductListController implements IProductList {
                 "imageUrl": "http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
             }
         ];
+
+        const newProduct = new Product(
+            3, "Saw", "TBX-002", new Date(2002, 3, 1), 16.95, "15-inch steel blade hand saw",
+            "http://openclipart.org/image/300px/svg_to_png/27070/egore911_saw.png");
+
+        newProduct.price = newProduct.calculateDiscount(10);
+        this.products.push(newProduct);
     }
 
     toggleImage(): void {
