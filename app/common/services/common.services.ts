@@ -1,0 +1,1 @@
+ng.module("common.services", ["ngResource"]);

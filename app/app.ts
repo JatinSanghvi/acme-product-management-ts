@@ -1,3 +1,1 @@
-import * as angular from "angular";
-
-angular.module("ProductManagement", []);
+ng.module("ProductManagement", []);

@@ -1,5 +1,4 @@
-import * as angular from "angular";
-
+import * as ng from "angular";
 import { IProduct, Product } from "./product";
 
 interface IProductList {
@@ -62,6 +61,5 @@ class ProductListController implements IProductList {
     }
 }
 
-angular
-    .module("ProductManagement")
+ng.module("ProductManagement")
     .controller("ProductListController", ProductListController);
