@@ -6,6 +6,8 @@ interface IProduct {
     price: number;
     description: string;
     imageUrl: string;
+
+    calculateDiscount(percent: number): number;
 }
 
 class Product implements IProduct {
