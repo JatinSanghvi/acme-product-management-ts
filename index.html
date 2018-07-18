@@ -21,7 +21,7 @@
     </nav>
 
     <div class="container">
-        <div ng-include="'app/products/productListView.html'"></div>
+        <ng-view></ng-view>
     </div>
 
     <script src="node_modules/systemjs/dist/system.js"></script>
@@ -29,8 +29,9 @@
         SystemJS.config({
             map: {
                 'angular': './node_modules/angular/index',
-                'angular-resource': './node_modules/angular-resource/index',
                 'angular-mocks': './node_modules/angular-mocks/angular-mocks',
+                'angular-resource': './node_modules/angular-resource/index',
+                'angular-route': './node_modules/angular-route/index'
             },
             meta: {
                 format: 'cjs'
@@ -42,10 +43,11 @@
             }
         });
 
-        // Modules.
+        // Main module.
         SystemJS.import('./js/app');
 
         // Controllers.
+        SystemJS.import('./js/products/productDetailController');
         SystemJS.import('./js/products/productListController');
     </script>
 

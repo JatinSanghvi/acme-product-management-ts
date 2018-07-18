@@ -15,7 +15,7 @@ class DataAccessService implements IDataAccessService {
     constructor(private $resource: ng.resource.IResourceService) { }
 
     getProductResource(): ng.resource.IResourceClass<IProductResource> {
-        return this.$resource("/api/products/:productid");
+        return this.$resource("/api/products/:productId");
     }
 }
 
