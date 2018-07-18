@@ -24,16 +24,13 @@
         <div ng-include="'app/products/productListView.html'"></div>
     </div>
 
-    <!-- Library Scripts -->
     <script src="node_modules/systemjs/dist/system.js"></script>
-
-    <!-- Module Loader -->
-    <script src="/node_modules/systemjs/dist/system.src.js"></script>
-
     <script>
-        System.config({
-            paths: {
-                'angular': 'node_modules/angular/index'
+        SystemJS.config({
+            map: {
+                'angular': './node_modules/angular/index',
+                'angular-resource': './node_modules/angular-resource/index',
+                'angular-mocks': './node_modules/angular-mocks/angular-mocks',
             },
             meta: {
                 format: 'cjs'
@@ -45,15 +42,11 @@
             }
         });
 
-        // Main Module
-        System.import('./js/app');
+        // Modules.
+        SystemJS.import('./js/app');
 
-        // Domain Classes
-
-        // Services
-
-        // Controllers
-        System.import('./js/products/productListController');
+        // Controllers.
+        SystemJS.import('./js/products/productListController');
     </script>
 
 </body>

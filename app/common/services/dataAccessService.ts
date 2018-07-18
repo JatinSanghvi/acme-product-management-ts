@@ -1,5 +1,6 @@
 import * as ng from "angular";
 import { IProduct } from "../../products/product";
+import "./common.services";
 
 interface IDataAccessService {
     getProductResource(): ng.resource.IResourceClass<IProductResource>;
@@ -21,3 +22,5 @@ class DataAccessService implements IDataAccessService {
 ng
     .module("common.services")
     .service("dataAccessService", DataAccessService);
+
+export { IProductResource, IDataAccessService };
